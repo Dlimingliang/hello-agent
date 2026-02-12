@@ -2,7 +2,7 @@ from typing import Optional, Dict, Any, Literal
 from datetime import datetime
 from pydantic import BaseModel
 
-MessageRole = Literal["user", "assistant", "system", "tool"]
+MessageRole = Literal["user", "assistant", "system", "tools"]
 
 
 class Message(BaseModel):

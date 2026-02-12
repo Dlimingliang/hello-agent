@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Optional
-from message import Message
-from llm import HelloAgentsLLM
-from config import Config
+from .message import Message
+from .llm import HelloAgentsLLM
+from .config import Config
 
 
 class Agent(ABC):
