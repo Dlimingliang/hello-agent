@@ -20,11 +20,22 @@ def simple_test():
     response1 = basic_agent.run("你好，请介绍一下自己")
     print(f"基础对话响应: {response1}\n")
 
-    # 测试3:流式响应
+    # 测试2:流式响应
     print("=== 测试2:流式响应 ===")
     print("流式响应: ", end="")
     for chunk in basic_agent.stream_run("请解释什么是人工智能"):
         pass  # 内容已在stream_run中实时打印
+
+    # 测试3:动态添加工具
+    print("\n=== 测试3:动态工具管理 ===")
+    print(f"添加工具前: {basic_agent.has_tools()}")
+    calculator = CalculatorTool()
+    basic_agent.add_tool(calculator)
+    print(f"添加工具后: {basic_agent.has_tools()}")
+    print(f"可用工具: {basic_agent.list_tools()}")
+
+    # 查看对话历史
+    print(f"\n对话历史: {len(basic_agent.get_history())} 条消息")
 
 def enhance_test():
     # 创建LLM实例
